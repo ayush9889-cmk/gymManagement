@@ -2,18 +2,17 @@ const express = require("express");
 const app = express();
 
 const cookieParser = require("cookie-parser");
+
 const cors = require("cors");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 4000;
-
+const PORT = process.env.PORT;
 app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
   })
 );
-
 app.use(cookieParser());
 app.use(express.json());
 
@@ -28,5 +27,5 @@ app.use("/plans", MembershipRoutes);
 app.use("/members", MemberRoutes);
 
 app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
+  console.log("server is running on Port 4000");
 });
