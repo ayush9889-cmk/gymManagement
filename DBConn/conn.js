@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://localhost:27017/gymBackend")
-  .then(() => console.log("DB connection successful"))
-  .catch((err) => {
-    console.log(err);
-  });
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Atlas connected"))
+  .catch((err) => console.log("❌ DB Error:", err));
