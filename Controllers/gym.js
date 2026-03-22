@@ -39,8 +39,8 @@ exports.register = async (req, res) => {
 
 const cookieOptions = {
   httpOnly: true,
-  secure: false,
-  sameSite: "Lax",
+  secure: true,        // 🔥 MUST for HTTPS
+  sameSite: "None",    // 🔥 MUST for cross-origin
 };
 
 exports.login = async (req, res) => {
